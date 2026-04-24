@@ -204,6 +204,14 @@ const routes: RouteObject[] = [
         handle: { breadcrumb: "Access Control" },
       },
       {
+        path: "flagged",
+        element: protectedElement(
+          "dashboard_access",
+          LazyLoad(() => import("./pages/app/flagged")),
+        ),
+        handle: { breadcrumb: "Flagged Content" },
+      },
+      {
         path: "forbidden",
         element: LazyLoad(() => import("./pages/forbidden")),
       },

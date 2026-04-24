@@ -93,9 +93,11 @@ const Sidebar = ({
   if (can("sidebar_questions"))
     menuItems.push(getItem("Questions", "/questions", <QuestionOutlined />));
 
-  // if (can("sidebar_questioncomment"))
   menuItems.push(
     getItem("Question Comments", "/question-comments", <FileTextOutlined />),
+  );
+  menuItems.push(
+    getItem("Flagged Content", "/flagged", <FileTextOutlined />),
   );
 
   // Tinder
