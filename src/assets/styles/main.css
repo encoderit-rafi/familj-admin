@@ -225,11 +225,11 @@ body[data-theme="dark"] .jodit-toolbar {
 }
 
 .editorial-header {
-  @apply bg-transparent py-10 px-0 border-b border-[#eeeae4] mb-8;
+  @apply bg-transparent py-5 px-0 border-b border-[#eeeae4] mb-4;
 }
 
 .editorial-title {
-  @apply text-[28px] leading-[1.3] font-semibold mx-auto max-w-full md:max-w-[720px] text-[#1a1a1a]!;
+  @apply text-[28px] leading-[1.3] px-3 font-semibold mx-auto max-w-full md:max-w-[720px] text-[#1a1a1a]!;
   font-family: var(--font-montserrat) !important;
 }
 
@@ -245,7 +245,7 @@ body[data-theme="dark"] .jodit-toolbar {
 .editorial-layout h1,
 .editorial-layout h2,
 .editorial-layout h3 {
-  @apply font-semibold leading-[1.3] text-[#1a1a1a]! mt-2 mb-6;
+  @apply font-semibold leading-[1.3] text-[#1a1a1a]! mt-2;
   font-family: var(--font-lora) !important;
 }
 
@@ -279,9 +279,9 @@ body[data-theme="dark"] .jodit-toolbar {
 .view-editor-content p {
   @apply text-[#2A2A2A]!;
 }
-.view-editor-content p:has(br) {
+/* .view-editor-content p:has(br) {
   @apply mb-0! h-0!;
 }
 .view-editor-content p:has(span):has(br) {
   @apply min-h-fit! h-fit!;
-}
+} */
