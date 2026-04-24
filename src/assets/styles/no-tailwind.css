@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* Custom styles for for articles pages */
+.no-tailwind {
+  all: revert;
+}
+
+/* Restore browser default styles for common elements */
+.no-tailwind h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-block: 0.67em;
+}
+
+.no-tailwind h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-block: 0.83em;
+}
+
+.no-tailwind h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-block: 1em;
+}
+
+.no-tailwind h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-block: 1.33em;
+}
+
+.no-tailwind h5 {
+  font-size: 0.83em;
+  font-weight: bold;
+  margin-block: 1.67em;
+}
+
+.no-tailwind h6 {
+  font-size: 0.67em;
+  font-weight: bold;
+  margin-block: 2.33em;
+}
+
+.no-tailwind p {
+  margin-block: 1em;
+}
+
+.no-tailwind ul, .no-tailwind ol {
+  list-style: revert;
+  margin-block: 1em;
+  padding-inline-start: 40px;
+}
+
+.no-tailwind ul {
+  list-style-type: disc;
+}
+
+.no-tailwind ol {
+  list-style-type: decimal;
+}
+
+.no-tailwind li {
+  display: list-item;
+}
+
+.no-tailwind strong, .no-tailwind b {
+  font-weight: bold;
+}
+
+.no-tailwind em, .no-tailwind i {
+  font-style: italic;
+}
+
+.no-tailwind a {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+.no-tailwind blockquote {
+  margin-block: 1em;
+  margin-inline: 40px;
+}
+
+/* checkbox */
+.no-tailwind input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1px solid #d1d5db;
+  cursor: not-allowed;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.no-tailwind table,
+.no-tailwind th,
+.no-tailwind td {
+  border: 1px solid #BF6EFF;
+}
+
+.no-tailwind th,
+.no-tailwind td {
+  padding: 0.5rem;
+}
+/* Article Button   */
+
+.articleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.2s;
+  outline: none;
+  border-radius: 9999px;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  gap: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+@media (min-width: 1024px) {
+  .articleBtn {
+    font-size: 0.875rem;
+  }
+}
+
+.btn-theme-primary {
+  background: linear-gradient(180deg, #9D81E1 0%, #BF6EFF 100%);
+  color: white !important;
+}

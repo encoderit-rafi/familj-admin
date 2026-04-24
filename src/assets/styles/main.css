@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@theme {
+  --font-lora: "Lora", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --color-editorial-bg: #faf7f2;
+  --color-editorial-text: #2a2a2a;
+}
+/* .view-editor-content .tiptap.ProseMirror {
+  padding: 0 !important;
+}
+.view-editor-content .reactjs-tiptap-editor {
+  background: transparent !important;
+} */
+.view-editor-content .tiptap.ProseMirror .columns {
+  @apply max-md:grid max-sm:grid-cols-1 max-md:grid-cols-2;
+}
+.view-editor-content .tiptap.ProseMirror .columns .column {
+  @apply border-none;
+}
+.view-editor-content table {
+  border: none !important;
+  border-collapse: collapse;
+}
+div[data-radix-popper-content-wrapper] {
+  z-index: 9999 !important;
+}
+.ant-tooltip-content .ant-tooltip-inner span {
+  color: white !important;
+}
+:root {
+  /*font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;*/
+  font-family: "Montserrat", Avenir, Helvetica, Arial, sans-serif !important;
+  font-optical-sizing: auto;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /*color-scheme: light dark;*/
+  /*color: rgba(255, 255, 255, 0.87);*/
+  /*background-color: #242424;*/
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/** {*/
+/*font-family: "Montserrat", Avenir, Helvetica, Arial, sans-serif !important;*/
+/*}*/
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #eef4fd !important;
+}
+
+/*@media (prefers-color-scheme: light) {*/
+/*  :root {*/
+/*    color: #213547;*/
+/*    background-color: #ffffff;*/
+/*  }*/
+/*  a:hover {*/
+/*    color: #747bff;*/
+/*  }*/
+/*  button {*/
+/*    background-color: #f9f9f9;*/
+/*  }*/
+/*}*/
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  margin-block: 100px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: oklch(67.3% 0.182 276.935);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: oklch(0.62 0.19 275.691);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: oklch(0.62 0.19 275.691);
+}
+
+/*.ant-menu-item.ant-menu-item-selected {*/
+/*    position: relative;*/
+/*    overflow: visible;*/
+/*    !*background-color: #0981c5;*!*/
+/*    !*color: #fff;*!*/
+/*}*/
+
+/*.ant-tree-treenode {*/
+/*    flex-grow: 1 !important;*/
+/*}*/
+
+/*.ant-menu-item.ant-menu-item-selected:before {*/
+/*    background-color: #0981c5;*/
+/*    width: 4px;*/
+/*    height: 30px;*/
+/*    margin-left: 0;*/
+/*    margin-top: 2px;*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    right: -6px;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/* Override the button component */
+button > span {
+  margin: 0 !important;
+  padding-top: 2px !important;
+}
+
+/* login.css */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Dark mode Jodit styling */
+body[data-theme="dark"] .jodit-wysiwyg {
+  background: #1f2327 !important;
+  color: #e5e5e5 !important;
+}
+
+body[data-theme="dark"] .jodit-toolbar {
+  background: #2a2f34 !important;
+  border-color: #333 !important;
+}
+
+.jodit-status-bar,
+.jodit-toolbar__box {
+  background: #b0bbf3 !important;
+}
+
+/*.ant-input-outlined {*/
+/*  border-color: #0078d4 !important;*/
+/*}*/
+
+/*.ant-input-outlined:focus,*/
+/*.ant-input-focused {*/
+/*  border-color: #0078d4 !important;*/
+/*  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2) !important;*/
+/*}*/
+
+.articleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.2s;
+  outline: none;
+  border-radius: 9999px;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  gap: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+@media (min-width: 1024px) {
+  .articleBtn {
+    font-size: 0.875rem;
+  }
+}
+
+.btn-theme-primary {
+  background: linear-gradient(180deg, #9d81e1 0%, #bf6eff 100%);
+  color: white !important;
+}
+
+.btn-dark {
+  background-color: #3d3177;
+  color: white !important;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  color: #212529 !important;
+  border: 1px solid #dee2e6;
+}
+
+.btn-theme-primary:focus-visible,
+.btn-dark:focus-visible,
+.btn-light:focus-visible {
+  outline: 2px solid rgba(157, 129, 225, 0.6); /* or custom focus color */
+  outline-offset: 2px;
+}
+.tiptap.ProseMirror {
+  @apply p-4!;
+}
+
+/* 
+  Editorial Layout Scope 
+  Using !important specifically within this scope to overcome global dashboard overrides 
+*/
+.editorial-layout {
+  @apply min-h-screen bg-[#faf7f2]! text-[#2a2a2a]!;
+  font-family: var(--font-lora) !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+}
+
+.editorial-header {
+  @apply bg-transparent py-10 px-0 border-b border-[#eeeae4] mb-8;
+}
+
+.editorial-title {
+  @apply text-[28px] leading-[1.3] font-semibold mx-auto max-w-full md:max-w-[720px] text-[#1a1a1a]!;
+  font-family: var(--font-montserrat) !important;
+}
+
+.editorial-container {
+  @apply mx-auto px-3 w-full max-w-full md:max-w-[720px] lg:max-w-[720px];
+}
+
+/* Typography Overrides */
+.editorial-layout p {
+  @apply text-[16px] leading-[1.6] font-normal font-lora; /* 24px mb */
+}
+
+.editorial-layout h1,
+.editorial-layout h2,
+.editorial-layout h3 {
+  @apply font-semibold leading-[1.3] text-[#1a1a1a]! mt-2 mb-6;
+  font-family: var(--font-lora) !important;
+}
+
+.editorial-layout h1 {
+  @apply text-[28px];
+}
+.editorial-layout h2 {
+  @apply text-2xl;
+}
+.editorial-layout h3 {
+  @apply text-xl;
+}
+
+/* Tiptap Internal Styles */
+.editorial-layout .tiptap.ProseMirror {
+  @apply p-0! bg-transparent!;
+}
+
+.editorial-layout .tiptap.ProseMirror p {
+  @apply mb-6;
+}
+
+.editorial-layout .tiptap.ProseMirror img {
+  @apply rounded-xl shadow-md my-10 mx-auto max-w-full;
+}
+
+.editorial-layout .tiptap.ProseMirror blockquote {
+  @apply border-l-4 border-[#944bea] pl-6 py-2 my-10 italic text-xl text-[#555];
+}
+
+.view-editor-content p {
+  @apply text-[#2A2A2A]!;
+}
+.view-editor-content p:has(br) {
+  @apply mb-0! h-0!;
+}
+.view-editor-content p:has(span):has(br) {
+  @apply min-h-fit! h-fit!;
+}

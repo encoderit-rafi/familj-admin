@@ -1,0 +1,153 @@
+@import "tailwindcss";
+.article-grid-item {
+  padding: 10px;
+  border: 1px dashed #aaa;
+  border-radius: 4px;
+  min-height: 80px;
+}
+
+/* Remove styles inside .no-tailwind-editor */
+.article-view .article-grid-item {
+  padding: unset;
+  border: unset;
+  border-radius: unset;
+}
+
+/* Custom styles for for articles pages */
+.no-tailwind-editor {
+  all: revert;
+}
+
+/* Restore browser default styles for common elements */
+.no-tailwind-editor h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-block: 0.67em;
+}
+
+.no-tailwind-editor h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-block: 0.83em;
+}
+
+.no-tailwind-editor h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-block: 1em;
+}
+
+.no-tailwind-editor h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-block: 1.33em;
+}
+
+.no-tailwind-editor h5 {
+  font-size: 0.83em;
+  font-weight: bold;
+  margin-block: 1.67em;
+}
+
+.no-tailwind-editor h6 {
+  font-size: 0.67em;
+  font-weight: bold;
+  margin-block: 2.33em;
+}
+
+.no-tailwind-editor p {
+  margin-block: 1em;
+}
+
+.no-tailwind-editor ul,
+.no-tailwind-editor ol {
+  list-style: revert;
+  margin-block: 1em;
+  padding-inline-start: 40px;
+}
+
+.no-tailwind-editor ul {
+  list-style-type: disc;
+}
+
+.no-tailwind-editor ol {
+  list-style-type: decimal;
+}
+
+.no-tailwind-editor li {
+  display: list-item;
+}
+
+.no-tailwind-editor strong,
+.no-tailwind-editor b {
+  font-weight: bold;
+}
+
+.no-tailwind-editor em,
+.no-tailwind-editor i {
+  font-style: italic;
+}
+
+.no-tailwind-editor a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.no-tailwind-editor blockquote {
+  margin-block: 1em;
+  margin-inline: 40px;
+}
+
+/* checkbox */
+/* .no-tailwind-editor input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1px solid #d1d5db;
+  cursor: not-allowed;
+  pointer-events: none;
+  transition: all 0.2s ease;
+} */
+
+.no-tailwind-editor table,
+.no-tailwind-editor th,
+.no-tailwind-editor td {
+  border: 1px solid #bf6eff;
+}
+
+.no-tailwind-editor th,
+.no-tailwind-editor td {
+  padding: 0.5rem;
+}
+/* Article Button   */
+
+.articleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.2s;
+  outline: none;
+  border-radius: 9999px;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  gap: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+@media (min-width: 1024px) {
+  .articleBtn {
+    font-size: 0.875rem;
+  }
+}
+
+.btn-theme-primary {
+  background: linear-gradient(180deg, #9d81e1 0%, #bf6eff 100%);
+  color: white !important;
+}
