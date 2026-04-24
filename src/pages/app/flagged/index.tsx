@@ -32,6 +32,7 @@ interface FlaggedUser {
 
 interface FlaggedItem {
   id: string;
+  _id?: string;
   section: "discussion" | "comment";
   content: string;
   flagged_user: FlaggedUser;
@@ -69,15 +70,25 @@ const FlaggedContent: React.FC = () => {
     section: tableParams.section,
   });
 
+  useEffect(() => {
+    if (flaggedItems && flaggedItems.length > 0) {
+      console.log("Flagged Items Sample:", flaggedItems[0]);
+    }
+  }, [flaggedItems]);
+
   const deleteMutation = useMutation({
-    mutationFn: ({ section, id }: { section: string; id: string }) =>
-      api.delete(`/threads/admin/flags/${section}/${id}`),
+    mutationFn: ({ section, id }: { section: string; id: string }) => {
+      console.log("👉 ~ FlaggedContent ~ section, id:", section, id);
+
+      return api.delete(`/threads/admin/flags/${section}/${id}`);
+    },
     onSuccess: () => {
       message.success("Item deleted successfully");
       refetch();
     },
     onError: (error: any) => {
-      const errorMessage = error?.response?.data?.message || "Failed to delete item";
+      const errorMessage =
+        error?.response?.data?.message || "Failed to delete item";
       message.error(errorMessage);
     },
   });
@@ -110,7 +121,10 @@ const FlaggedContent: React.FC = () => {
       key: "section",
       width: "120px",
       render: (section) => (
-        <Tag color={section === "discussion" ? "blue" : "orange"} className="capitalize">
+        <Tag
+          color={section === "discussion" ? "blue" : "orange"}
+          className="capitalize"
+        >
           {section}
         </Tag>
       ),
@@ -122,13 +136,15 @@ const FlaggedContent: React.FC = () => {
       render: (content) => (
         <div style={{ maxWidth: "400px" }}>
           <Tooltip title={content}>
-            <span style={{ 
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis"
-            }}>
+            <span
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
               {content || "—"}
             </span>
           </Tooltip>
@@ -152,7 +168,9 @@ const FlaggedContent: React.FC = () => {
       key: "flags_count",
       align: "center",
       width: "80px",
-      render: (count) => <Tag color={count > 5 ? "red" : "default"}>{count}</Tag>,
+      render: (count) => (
+        <Tag color={count > 5 ? "red" : "default"}>{count}</Tag>
+      ),
     },
     {
       title: "Created At",
@@ -164,23 +182,44 @@ const FlaggedContent: React.FC = () => {
       title: "Actions",
       key: "actions",
       width: "80px",
-      render: (_, record) => (
-        <Popconfirm
-          title="Are you sure you want to delete this content?"
-          description="This action will soft-delete the item and cannot be easily undone."
-          onConfirm={() => deleteMutation.mutate({ section: record.section, id: record.item_id })}
-          okText="Delete"
-          cancelText="Cancel"
-          okButtonProps={{ danger: true, loading: deleteMutation.isPending && deleteMutation.variables?.id === record.item_id }}
-        >
-          <Button
-            type="link"
-            danger
-            icon={<DeleteOutlined />}
-            loading={deleteMutation.isPending && deleteMutation.variables?.id === record.item_id}
-          />
-        </Popconfirm>
-      ),
+      render: (_, record) => {
+        const section = record.section;
+        const id = record._id || record.item_id || record.id;
+
+        return (
+          <Popconfirm
+            title="Are you sure you want to delete this content?"
+            description="This action will soft-delete the item and cannot be easily undone."
+            onConfirm={() => {
+              //   console.log("👉 ~ FlaggedContent ~ section:", {
+              //     section,
+              //     record,
+              //   });
+              if (section && id) {
+                deleteMutation.mutate({ section, id });
+              } else {
+                message.error("Missing SECTION or ID for deletion");
+              }
+            }}
+            okText="Delete"
+            cancelText="Cancel"
+            okButtonProps={{
+              danger: true,
+              loading:
+                deleteMutation.isPending && deleteMutation.variables?.id === id,
+            }}
+          >
+            <Button
+              type="link"
+              danger
+              icon={<DeleteOutlined />}
+              loading={
+                deleteMutation.isPending && deleteMutation.variables?.id === id
+              }
+            />
+          </Popconfirm>
+        );
+      },
     },
   ];
 
@@ -198,7 +237,9 @@ const FlaggedContent: React.FC = () => {
         showSizeChanger: true,
       }}
       onChange={handleTableChange}
-      rowKey="id"
+      rowKey={(record) =>
+        record.id || record._id || record.item_id || Math.random().toString()
+      }
       actions={
         <Flex gap="middle" align="center">
           <Select
