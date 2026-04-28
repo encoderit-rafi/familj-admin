@@ -225,7 +225,7 @@ body[data-theme="dark"] .jodit-toolbar {
 }
 
 .editorial-header {
-  @apply bg-transparent py-5 px-0 border-b border-[#eeeae4] mb-4;
+  @apply bg-transparent py-5 px-0 mb-4;
 }
 
 .editorial-title {
